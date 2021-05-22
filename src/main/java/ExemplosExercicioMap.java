@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.TreeMap;
 
 public class ExemplosExercicioMap {
@@ -34,13 +35,31 @@ public class ExemplosExercicioMap {
         treeEstados.put("SE", "Sergipe");
         treeEstados.put("TO", "Tocantins");
 
-        //Remova o estado de Minas Gerais;
-        //Adicione o Distrito Federal;
-        //Verifique o tamanho do mapa;
-        //Remova o estado de Mato Grosso do Sul usando o nome;
-        //Navegue em todos os registros do map, mostrando no console no seguinte formato: NOME (SIGLA);
-        //Verifique se o estado de Santa Catarina existe no map buscando por sua sigla (SC);
-        //Verifique se o estado do Maranhão existe no map buscando por seu nome.
+        System.out.println("Todos os estados: " + treeEstados);
 
+        //Remova o estado de Minas Gerais;
+        treeEstados.remove("MG");
+        System.out.println(treeEstados);
+
+        //Adicione o Distrito Federal;
+        treeEstados.put("DF", "Distrito Federal");
+
+        //Verifique o tamanho do mapa;
+        System.out.println("Tamanho do Map: " + treeEstados.size());
+
+        //Remova o estado de Mato Grosso do Sul usando o nome;
+        treeEstados.values().removeIf(value -> value.contains("Mato Grosso do Sul"));
+        System.out.println("Removido o estado do Mato Grosso do Sul: " + treeEstados);
+
+        //Navegue em todos os registros do map, mostrando no console no seguinte formato: NOME (SIGLA);
+        for(Map.Entry<String, String> estado: treeEstados.entrySet()) {
+            System.out.println(estado.getValue() + " (" + estado.getKey() + ")");
+        }
+
+        //Verifique se o estado de Santa Catarina existe no map buscando por sua sigla (SC);
+        System.out.println("Verificando se o estado de Santa Catarina existe no map: " + treeEstados.containsKey("SC"));
+
+        //Verifique se o estado do Maranhão existe no map buscando por seu nome.
+        System.out.println("Verificando se o estado do Maranhão existe no map: " + treeEstados.containsValue("Maranhao"));
     }
 }
